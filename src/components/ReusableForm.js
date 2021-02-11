@@ -7,8 +7,12 @@ function ReusableForm(props) {
       <form onSubmit={props.formSubmissionHandler}>
         <input
           type='text'
+          name='category'
+					placeholder='Category'/>
+        <input
+          type='text'
           name='name'
-					placeholder='Title'/>
+					placeholder='Name'/>
         <input
           type='text'
           name='description'

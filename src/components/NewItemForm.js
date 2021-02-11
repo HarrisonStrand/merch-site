@@ -7,7 +7,13 @@ function NewItemForm(props){
   
 	function handleNewItemFormSubmission(event) {
     event.preventDefault();
-    props.onNewItemCreation({category: event.target.category.value, name: event.target.name.value, description: event.target.description.value, quantity: parseInt(event.target.quantity.value), id: v4()});
+    props.onNewItemCreation({
+      category: event.target.category.value.toUpperCase(), 
+      name: event.target.name.value, 
+      description: event.target.description.value, 
+      quantity: parseInt(event.target.quantity.value), 
+      id: v4()
+    });
     console.log(event.target.category.value);
     console.log(event.target.name.value);
     console.log(event.target.description.value);

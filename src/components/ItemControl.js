@@ -61,6 +61,14 @@ class ItemControl extends React.Component {
 		});
 }
 
+// handleFilterByCategory = (category) => {
+// 	const newMasterItemList = this.state.masterItemList.filter(item => item.category !== category);
+// 	this.setState({
+// 		masterItemList: newMasterItemList,
+// 		selectedItem: null
+// 	});
+// }
+
 	handleClick = () => {
 			if (this.state.selectedItem != null) {
 				this.setState({
@@ -100,6 +108,7 @@ class ItemControl extends React.Component {
     } else {
 				currentlyVisibleState = <ItemList 
 				itemList = {this.state.masterItemList} 
+				// onFilterByCategory = {this.handleFilterByCategory}
 				onItemSelection={this.handleChangingSelectedItem}/>;
 				buttonText = "Add Item";
     }

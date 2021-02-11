@@ -6,9 +6,10 @@ function ItemList(props) {
 	return (
 		<>
 			<hr/>
-			{props.itemList.map((item) =>
+			{props.itemList.filter(item => item.category.includes('SHIRT')).map((item) =>
 				<Item
 					whenItemClicked = { props.onItemSelection }
+					whenCategoryClicked = {props.onFilterByCategory}
 					category = {item.category}
 					name = {item.name}
 					description = {item.description}
@@ -21,9 +22,29 @@ function ItemList(props) {
 }
 
 
+// import React from 'react';
+
+// const names = ['James', 'John', 'Paul', 'Ringo', 'George'];
+
+// function App() {
+//   return (
+//     <div>
+//       {names.filter(name => name.includes('J')).map(filteredName => (
+//         <li>
+//           {filteredName}
+//         </li>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
 ItemList.propTypes = {
   itemList: PropTypes.array,
-	onItemSelection: PropTypes.func
+	onItemSelection: PropTypes.func,
+	onFilterByCategory: PropTypes.func
 };
 
 export default ItemList;
