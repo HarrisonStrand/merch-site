@@ -49,14 +49,26 @@ class ShirtControl extends React.Component {
 			});
 	}
 
+	// handlePurchasingShirtInList = () => {
+	// 	const selectedShirt = this.state.masterShirtList
+	// 		.filter(shirt => shirt.id === this.state.selectedShirt.id)[0];
+	// 	const newQuantity = selectedShirt.quantity--;
+	// 	this.setState({ 
+	// 		selectedShirt: newQuantity
+	// 	})
+	// }
+
 	handlePurchasingShirtInList = () => {
-		const selectedShirt = this.state.masterShirtList
-			.filter(shirt => shirt.id === this.state.selectedShirt.id)[0]; // selects shirt by specif id
-		const newQuantity = selectedShirt.quantity--; // ?????????  updating the property
+		const selectedShirt = this.state.selectedShirt; // selects shirt that is currently selected and viewed in the details page
+		const newQuantity = Object.assign({}, selectedShirt, {quantity: selectedShirt.quantity - 1}); // targets the selectedShirt and its quantity, and assigns it the new quantity
+		const newShirtList = this.state.masterShirtList
+			.filter(shirt => shirt.id !== this.state.selectedShirt.id)
+			.concat(newQuantity); // updates the shirt list
 		this.setState({ 
-			selectedShirt: newQuantity
-		})
-	}
+				masterShirtList: newShirtList,
+				selectedShirt: newQuantity
+		});
+}
 
 	handleClick = () => {
 			if (this.state.selectedShirt != null) {
