@@ -1,22 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Shirt(props){
+function Item(props){
   return (
 		<>
-      <div onClick = {() => props.whenShirtClicked(props.id)}>
+      <div onClick = {() => props.whenItemClicked(props.id)}>
       <p>{props.name}</p>
       </div>
 		</>
   );
 }
 
-Shirt.propTypes = {
+Item.propTypes = {
+  category: PropTypes.string,
   name: PropTypes.string,
   description: PropTypes.string,
   quantity: PropTypes.number,
   id: PropTypes.string,
-  whenShirtClicked: PropTypes.func
+  whenItemClicked: PropTypes.func
 };
 
-export default Shirt;
+export default Item;

@@ -1,24 +1,14 @@
 import React from 'react';
 import Banner from './Banner';
-import BottomInfo from './BottomInfo';
-import Footer from './Footer';
-import Shirt from './Shirt';
-import ShirtControl from './ShirtControl';
-import Hats from './Hats';
-import Posters from './Posters';
-import Vinyl from './Vinyl';
+import Item from './Item';
+import ItemControl from './ItemControl';
 
 function App() {
   return (
     <>
     <Banner />
-    {/* <BottomInfo />
-    <Footer />
-    <Hats />
-    <Posters />
-    <Vinyl /> */}
-    <Shirt />
-    <ShirtControl />
+    <Item />
+    <ItemControl />
     </>
   );
 }
